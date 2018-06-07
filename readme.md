@@ -58,7 +58,7 @@ It's an object with the following properties:
  Name         | Description
 --------------|-------------
  watch        | file, dir, glob, or array passed to `watch` in [chokidar](https://www.npmjs.com/package/chokidar#api)
- watchOptions | optional watcher config object [parameters](https://www.npmjs.com/package/chokidar#api)
+ watchOptions | optional watcher [options](https://www.npmjs.com/package/chokidar#api)
  options      | optional config object passed to [ESLint CLIEngine](https://eslint.org/docs/developer-guide/nodejs-api#cliengine)
 
 
