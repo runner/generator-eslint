@@ -24,16 +24,20 @@ Add to the scope:
 var generator = require('@runner/generator-eslint');
 ```
 
-Add generated tasks to the runner instance:
+Generate tasks according to the given config:
+
+```js
+var tasks = generator({
+    watch: ['src/js/**/*.js']
+});
+```
+
+Add generated tasks to the `runner` instance:
 
 ```js
 var runner = require('@runner/core');
 
-runner.tasks(
-    generator({
-        watch: ['src/js/**/*.js']
-    })
-);
+Object.assign(runner.tasks, tasks);
 ```
 
 The following tasks will become available:
@@ -44,7 +48,12 @@ The following tasks will become available:
  `eslint:watch`   | starts file changes monitoring, prints warnings on errors
  `eslint:unwatch` | stops monitoring
 
-Generator configuration object:
+Generator accepts two arguments: base configuration and additional options.
+
+
+### Base configuration ###
+
+It's an object with the following properties:
 
  Name         | Description
 --------------|-------------
@@ -52,7 +61,10 @@ Generator configuration object:
  watchOptions | optional watcher config object [parameters](https://www.npmjs.com/package/chokidar#api)
  options      | optional config object passed to [ESLint CLIEngine](https://eslint.org/docs/developer-guide/nodejs-api#cliengine)
 
-Additional generator options:
+
+### Additional options ###
+
+It's an object with the following properties:
 
  Name   | Description
 --------|-------------
@@ -62,7 +74,7 @@ Additional generator options:
 So it's possible to change generated tasks names: 
 
 ```js
-runner.tasks(
+Object.assign(runner.tasks,
     generator(config, {
         prefix: 'lint:',
         suffix: ':develop'
@@ -70,7 +82,7 @@ runner.tasks(
 );
 ```
 
-This will create the following tasks:
+It will add the following tasks:
 
 * `lint:config:develop`  
 * `lint:watch:develop`
