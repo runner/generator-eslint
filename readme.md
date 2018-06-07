@@ -38,11 +38,11 @@ runner.tasks(
 
 The following tasks will become available:
 
- Task name      | Description
-----------------|-------------
- eslint:config  | prints the current configuration used for generated tasks
- eslint:watch   | starts file changes monitoring, prints warnings on errors
- eslint:unwatch | stops monitoring
+ Task name        | Description
+------------------|-------------
+ `eslint:config`  | prints the current configuration used for generated tasks
+ `eslint:watch`   | starts file changes monitoring, prints warnings on errors
+ `eslint:unwatch` | stops monitoring
 
 Generator configuration object:
 
@@ -72,9 +72,9 @@ runner.tasks(
 
 This will create the following tasks:
 
-* lint:config:develop  
-* lint:watch:develop   
-* lint:unwatch:develop 
+* `lint:config:develop`  
+* `lint:watch:develop`
+* `lint:unwatch:develop` 
  
 
 ## Contribution ##
