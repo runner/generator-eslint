@@ -43,7 +43,7 @@ function watch ( config, done ) {
 
     engine = new CLIEngine(config.options);
 
-    watcher = chokidar.watch(config.watch, config.watchOptions || runner.watch.config);
+    watcher = chokidar.watch(config.watch, config.watchOptions);
     watcher
         .on('change', handler)
         .on('unlink', handler)
@@ -70,6 +70,14 @@ function generator ( config, options ) {
         instance;
 
     // sanitize and extend defaults
+    config = Object.assign({
+        watchOptions: {
+            ignoreInitial: true,
+            awaitWriteFinish: {
+                stabilityThreshold: 50
+            }
+        }
+    }, config || {});
     options = Object.assign(generator.options, options || {});
 
     tasks[options.prefix + 'config' + options.suffix] = function () {
