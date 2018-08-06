@@ -6,7 +6,7 @@
 'use strict';
 
 var name = 'eslint',
-    log  = require('@runner/logger').wrap(name);
+    log  = require('runner-logger').wrap(name);
 
 
 function watch ( config, done ) {

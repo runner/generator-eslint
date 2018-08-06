@@ -1,5 +1,5 @@
 {
-    "name": "@runner/generator-eslint",
+    "name": "runner-generator-eslint",
     "version": "1.0.1",
     "description": "Tasks generator for ESLint.",
     "author": {
@@ -10,17 +10,14 @@
         "type": "git",
         "url": "https://github.com/runner/generator-eslint.git"
     },
-    "publishConfig": {
-        "access": "public"
-    },
     "scripts": {
         "lint": "eslint .",
         "test": "npm run lint"
     },
     "dependencies": {
-        "@runner/logger": "^1.0.0",
         "chokidar": "^2.0.3",
-        "eslint": "^5.3.0"
+        "eslint": "^5.3.0",
+        "runner-logger": "^1.0.0"
     },
     "devDependencies": {
         "cjs-eslint": "^1.1.1"
