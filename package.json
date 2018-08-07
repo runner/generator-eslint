@@ -1,6 +1,6 @@
 {
     "name": "runner-generator-eslint",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Tasks generator for ESLint.",
     "author": {
         "name": "Stanislav Kalashnik",
@@ -15,9 +15,9 @@
         "test": "npm run lint"
     },
     "dependencies": {
-        "chokidar": "^2.0.3",
+        "chokidar": "^2.0.4",
         "eslint": "^5.3.0",
-        "runner-logger": "^1.0.0"
+        "runner-logger": "^1.0.1"
     },
     "devDependencies": {
         "cjs-eslint": "^1.1.1"
