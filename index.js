@@ -16,8 +16,8 @@ function watch ( config, done ) {
         failCount = {},
         engine, watcher;
 
-    function handler ( name ) {
-        var report = engine.executeOnFiles([name]);
+    function handler ( fileName ) {
+        var report = engine.executeOnFiles([fileName]);
 
         report.results.forEach(function ( result ) {
             result.messages.forEach(function ( message ) {
