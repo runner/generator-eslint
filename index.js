@@ -70,7 +70,7 @@ function generator ( config, options ) {
         instance;
 
     // sanitize and extend defaults
-    config = Object.assign({
+    generator.config = config = Object.assign({
         watchOptions: {
             ignoreInitial: true,
             awaitWriteFinish: {
