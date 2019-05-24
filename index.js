@@ -69,7 +69,9 @@ function unwatch ( instance ) {
 
 
 function generator ( config = {}, options = {} ) {
-    const tasks = {};
+    const
+        tasks = {},
+        {prefix = name + ':', suffix = ''} = options;
 
     let instance;
 
@@ -83,21 +85,15 @@ function generator ( config = {}, options = {} ) {
         }
     }, config);
 
-    // sanitize and extend defaults
-    options = Object.assign({}, {
-        prefix: name + ':',
-        suffix: ''
-    }, options);
-
-    tasks[options.prefix + 'config' + options.suffix] = function () {
+    tasks[prefix + 'config' + suffix] = function () {
         log.inspect(config, log);
     };
 
-    tasks[options.prefix + 'watch' + options.suffix] = function ( done ) {
+    tasks[prefix + 'watch' + suffix] = function ( done ) {
         instance = watch(config, done);
     };
 
-    tasks[options.prefix + 'unwatch' + options.suffix] = function () {
+    tasks[prefix + 'unwatch' + suffix] = function () {
         unwatch(instance);
         instance = null;
     };
