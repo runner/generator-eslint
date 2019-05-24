@@ -68,21 +68,26 @@ function unwatch ( instance ) {
 }
 
 
-function generator ( config, options ) {
+function generator ( config = {}, options = {} ) {
     const tasks = {};
 
     let instance;
 
     // sanitize and extend defaults
-    generator.config = config = Object.assign({
+    config = Object.assign({
         watchOptions: {
             ignoreInitial: true,
             awaitWriteFinish: {
                 stabilityThreshold: 50
             }
         }
-    }, config || {});
-    options = Object.assign({}, generator.options, options || {});
+    }, config);
+
+    // sanitize and extend defaults
+    options = Object.assign({}, {
+        prefix: name + ':',
+        suffix: ''
+    }, options);
 
     tasks[options.prefix + 'config' + options.suffix] = function () {
         log.inspect(config, log);
@@ -99,13 +104,6 @@ function generator ( config, options ) {
 
     return tasks;
 }
-
-
-// defaults
-generator.options = {
-    prefix: name + ':',
-    suffix: ''
-};
 
 
 // export main actions
