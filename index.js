@@ -5,19 +5,22 @@
 
 'use strict';
 
-var name = 'eslint',
+const
+    name = 'eslint',
     log  = require('runner-logger').wrap(name);
 
 
 function watch ( config, done ) {
-    var path      = require('path'),
+    const
+        path      = require('path'),
         chokidar  = require('chokidar'),
         CLIEngine = require('eslint').CLIEngine,
-        failCount = {},
-        engine, watcher;
+        failCount = {};
+
+    let engine, watcher;
 
     function handler ( fileName ) {
-        var report = engine.executeOnFiles([fileName]);
+        const report = engine.executeOnFiles([fileName]);
 
         report.results.forEach(function ( result ) {
             result.messages.forEach(function ( message ) {
@@ -66,8 +69,9 @@ function unwatch ( instance ) {
 
 
 function generator ( config, options ) {
-    var tasks = {},
-        instance;
+    const tasks = {};
+
+    let instance;
 
     // sanitize and extend defaults
     generator.config = config = Object.assign({

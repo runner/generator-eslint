@@ -21,13 +21,13 @@ npm install runner-generator-eslint
 Add to the scope:
 
 ```js
-var generator = require('runner-generator-eslint');
+const generator = require('runner-generator-eslint');
 ```
 
 Generate tasks according to the given config:
 
 ```js
-var tasks = generator({
+const tasks = generator({
     watch: ['src/js/**/*.js']
 });
 ```
@@ -35,7 +35,7 @@ var tasks = generator({
 Add generated tasks to the `runner` instance:
 
 ```js
-var runner = require('runner');
+const runner = require('runner');
 
 Object.assign(runner.tasks, tasks);
 ```
